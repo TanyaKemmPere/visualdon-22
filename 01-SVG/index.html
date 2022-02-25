@@ -17,21 +17,24 @@
   <h1>Dessiner des formes</h1>
   <h2>Rectangle</h2>
   <svg width="400" height="100">
-    <rect x="0" y="0" width="400" height="100" fill="red"></rect>
+    <rect id="rect" class="rouge" onclick="changementCouleur(this)" x="0" y="0" width="400" height="100" fill="red"></rect>
   </svg>
   <h2>Donut</h2>
   <svg width="200" height="150">
-    <circle cx="50" cy="50" r="60" fill="none" stroke="black"></circle>
+    <circle class="donut" cx="50" cy="50" r="60" fill="none" stroke="black"></circle>
     <circle cx="50" cy="50" r="30" fill="none" stroke="black"></circle>
   </svg>
 
   <h2>Ligne</h2>
-  <svg width="60" height="60">
-    <line x1="20" y1="50" x2="31.77" y2="108,83" stroke="red"></line>
+  <svg width="60" height="120">
+    <!--j'ai choisi de faire que la pente 5 soit p/r à notre origine et
+        non p/r à notre "oeil" (normalement une pente 5 monte, mais du
+        coup avec notre origine elle descend)-->
+    <line x1="20" y1="50" x2="31.77" y2="108.83" stroke="red"></line>
   </svg>
 
   <h2>Path</h2>
-  <svg width="500" height="200">
+  <svg width="500" height="175">
     <!-- T -->
     <path d="
       M 50 100
@@ -79,11 +82,12 @@
   <h1>Animer des formes</h1>
 
   <h2>On click</h2>
+  <!--dans script.js-->
 
   <h2>On hover</h2>
 
-  <h2>Prenez la première lettre de votre prénom que vous avez créée ci-dessus. Faite bouger une forme de votre choix le
-    long de la lettre</h2>
+  <h2>Prenez la première lettre de votre prénom que vous avez créée ci-dessus.
+      Faite bouger une forme de votre choix le long de la lettre</h2>
   <svg width="500" height="200">
 
     <!-- T -->
@@ -98,10 +102,10 @@
       
 
     <!-- Cercle rouge qui sera déplacé le long du chemin. -->
-    <circle cx="" cy="" r="5" fill="red">
+    <circle cx="0" cy="0" r="5" fill="red">
 
       <!-- Définit l'animation -->
-      <animateMotion dur="10s" repeatCount="indefinite">
+      <animateMotion dur="7s" repeatCount="indefinite">
         <mpath xlink:href="#tMotion" />
       </animateMotion>
     </circle>
