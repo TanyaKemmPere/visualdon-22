@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <script src="js/script.js" async></script>
 
-    <title>1-SVG</title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="js/script.js" async></script>
 
-    <h1>Dessiner des formes</h1>
-    <h2>Rectangle</h2>
-    <svg width="400" height="100">
-      <rect x="0" y="0" width="400" height="100" fill="red"></rect>
-    </svg>
-    <h2>Donut</h2>
-    <svg width="200" height="150">
-      <circle cx="50" cy="50" r="60" fill="none" stroke="black"></circle>
-      <circle cx="50" cy="50" r="30" fill="none" stroke="black"></circle>
-    </svg>
+  <title>1-SVG</title>
+</head>
 
-    <h2>Ligne</h2>
-    <svg width="60" height="60">
-      <line x1="20" y1="50" x2="31.77" y2="108,83" stroke="red"></line>
-    </svg>
+<body>
 
-    <h2>Path</h2>
-    <svg width="500" height="200">
-      <!-- T -->
-      <path d="
+  <h1>Dessiner des formes</h1>
+  <h2>Rectangle</h2>
+  <svg width="400" height="100">
+    <rect x="0" y="0" width="400" height="100" fill="red"></rect>
+  </svg>
+  <h2>Donut</h2>
+  <svg width="200" height="150">
+    <circle cx="50" cy="50" r="60" fill="none" stroke="black"></circle>
+    <circle cx="50" cy="50" r="30" fill="none" stroke="black"></circle>
+  </svg>
+
+  <h2>Ligne</h2>
+  <svg width="60" height="60">
+    <line x1="20" y1="50" x2="31.77" y2="108,83" stroke="red"></line>
+  </svg>
+
+  <h2>Path</h2>
+  <svg width="500" height="200">
+    <!-- T -->
+    <path d="
       M 50 100
-      V -100
+      V 3
       M 10 3
-      H 90"
-      fill="none" stroke="indianred" stroke-width="3"></path>
-      <!-- a -->
-      <path d="
+      H 90" fill="none" stroke="indianred" stroke-width="3"></path>
+    <!-- a -->
+    <path d="
       M 70 45
       C 80 25 120 30 120 50
       V 100
@@ -46,49 +47,64 @@
       H 80
       C 60 99 60 70 80 70
       H 120
-      "
-      fill="none" stroke="indianred" stroke-width="3"></path>
-      <!-- n -->
-      <path d="
+      " fill="none" stroke="indianred" stroke-width="3"></path>
+    <!-- n -->
+    <path d="
       M 135 100
       V 33
       M 135 45
       C 140 25 185 25
       190 50
-      V 100"
-      fill="none" stroke="indianred" stroke-width="3"></path>
-      <!-- y -->
-      <path d="
+      V 100" fill="none" stroke="indianred" stroke-width="3"></path>
+    <!-- y -->
+    <path d="
       M 205 33
       L 235 100
       M 210 170
-      L 270 33"
-      fill="none" stroke="indianred" stroke-width="3"></path>
-      <!-- a -->
-      <path d="
+      L 270 33" fill="none" stroke="indianred" stroke-width="3"></path>
+    <!-- a -->
+    <path d="
       M 300 45
       C 310 25 350 30 350 50
       V 100
       M 351 99
       H 310
       C 290 99 190 70 310 70
-      H 350"
-      fill="none" stroke="indianred" stroke-width="3"></path>
+      H 350" fill="none" stroke="indianred" stroke-width="3"></path>
+  </svg>
+
+
+  </svg>
+
+  <h1>Animer des formes</h1>
+
+  <h2>On click</h2>
+
+  <h2>On hover</h2>
+
+  <h2>Prenez la première lettre de votre prénom que vous avez créée ci-dessus. Faite bouger une forme de votre choix le
+    long de la lettre</h2>
+  <svg width="500" height="200">
+
+    <!-- a -->
+    <path d="
+    M 50 100
+    V 3
+    M 10 3
+    H 90" fill="none" stroke="indianred" stroke-width="3"
+      id="aMotion"></path>
       
-      
-    </svg>
 
-      
-    </svg>
+    <!-- Cercle rouge qui sera déplacé le long du chemin. -->
+    <circle cx="" cy="" r="5" fill="red">
 
-    <h1>Animer des formes</h1>
+      <!-- Définit l'animation -->
+      <animateMotion dur="6s" repeatCount="indefinite">
+        <mpath xlink:href="#aMotion" />
+      </animateMotion>
+    </circle>
+  </svg>
 
-    <h2>On click</h2>
+</body>
 
-    <h2>On hover</h2>
-
-    <h2>Prenez la première lettre de votre prénom que vous avez créée ci-dessus. Faite bouger une forme de votre choix le long de la lettre</h2>
-
-
-  </body>
 </html>
