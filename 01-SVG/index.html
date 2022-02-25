@@ -59,18 +59,18 @@
     <!-- y -->
     <path d="
       M 205 33
-      L 235 100
+      L 238 105
       M 210 170
       L 270 33" fill="none" stroke="indianred" stroke-width="3"></path>
     <!-- a -->
     <path d="
-      M 300 45
-      C 310 25 350 30 350 50
+      M 280 45
+      C 290 25 330 30 330 50
       V 100
-      M 351 99
-      H 310
-      C 290 99 190 70 310 70
-      H 350" fill="none" stroke="indianred" stroke-width="3"></path>
+      M 331 99
+      H 290
+      C 270 99 270 70 290 70
+      H 330" fill="none" stroke="indianred" stroke-width="3"></path>
   </svg>
 
 
@@ -86,21 +86,23 @@
     long de la lettre</h2>
   <svg width="500" height="200">
 
-    <!-- a -->
+    <!-- T -->
     <path d="
-    M 50 100
-    V 3
-    M 10 3
-    H 90" fill="none" stroke="indianred" stroke-width="3"
-      id="aMotion"></path>
+    M 10 6
+    H 90
+    H 50
+    V 103
+    V 6
+    H 10" fill="none" stroke="indianred" stroke-width="3"
+      id="tMotion"></path>
       
 
     <!-- Cercle rouge qui sera déplacé le long du chemin. -->
     <circle cx="" cy="" r="5" fill="red">
 
       <!-- Définit l'animation -->
-      <animateMotion dur="6s" repeatCount="indefinite">
-        <mpath xlink:href="#aMotion" />
+      <animateMotion dur="10s" repeatCount="indefinite">
+        <mpath xlink:href="#tMotion" />
       </animateMotion>
     </circle>
   </svg>
