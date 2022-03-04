@@ -3,10 +3,11 @@ body {
 }
 
 
-.donut:hover {
-      transform: scale(1.2);
+.cercleExt:hover {
+
+      transform: scale(2);
     }
-    .donut {
+    .cercleExt {
       transition: all 1s;
-      transform-origin: 50% 50%;
+      transform-origin: 100% 50%;
     }
