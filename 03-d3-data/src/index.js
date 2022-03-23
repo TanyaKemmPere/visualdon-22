@@ -26,7 +26,7 @@ Promise.all ([
       users.forEach(user => {
         post_filtered = posts.filter(post=>post.userId === user.id)
         console.log(post_filtered)
-        /*ce truc avec le post_filtered j'avoue que je na'i pas compris par
+        /*ce truc avec le post_filtered j'avoue que je n'ai pas compris par
           moi même du coup j'ai regardé avec Jules comment il avait fait*/
         d3.select("#nombrePostsUtilisateurs")
           .append("p")
@@ -56,6 +56,59 @@ Promise.all ([
         .append("p")
         .text(`${users[userDuTexteLePlusLong].name}, avec une publication de ${texteLePlusLong} caractères.`)
 
+
+
+      //dessiner le tableau
+
+      const height = 300;
+      const width = 300;
+
+      d3.select("body")
+        .append("div")
+        .attr("id","dessinerGraphe");
+
+      d3.select("#dessinerGraphe")
+        .append("h1")
+        .text("Dessiner graphe")
+      
+      d3.select("#dessinerGraphe")
+        .append("svg")
+        .attr("width", height)
+        .attr("height", width)
+
+      d3.select("#dessinerGraphe")
+        .data(posts)
+        .data(users)
+        .enter()
+        .append('rect')
+        .attr('x', (d,i) => i*25)
+        .attr('y', (d) => 100-d)
+        .attr('width',20)
+        .attr('height', (d) => d)
+        
+
+
+
+
+
+
+
+const tableau = [20, 5, 25, 8, 15];
+
+
+const svgGraphe = d3.select("body")
+                    .append("svg")
+                    .attr("width", height)
+                    .attr("height", width)
+
+svgGraphe.selectAll('.bar')
+         .data(tableau)
+         .enter()
+         .append('rect')
+         .attr('x', (d,i) => i*25 )
+         .attr('y', (d) => 100-d)
+         .attr('width', 20)
+         .attr('height', (d) => d)
     })
 
 
