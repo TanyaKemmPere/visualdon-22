@@ -91,7 +91,7 @@ Promise.all ([
 
 
 
-
+////pour avoir une référence (c'est un ancien exo)
 
 const tableau = [20, 5, 25, 8, 15];
 
