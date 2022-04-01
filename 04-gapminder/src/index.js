@@ -11,7 +11,7 @@ const pib2021 = pib.map((d) => {
   return d[2021];
 });
 const maxpib2021 = d3.max(pib2021); //ici ce n'est pas la valeur max qui est prise… (pourquoi?)
-const minpib2021 = d3.min(pib2021)
+const minpib2021 = d3.min(pib2021);
 
 const esperance2021 = esperance.map((d) => {
   return d[2021];
@@ -45,42 +45,22 @@ svg
 
 //échelles
 
-
 //création + dessin des axes
-
-  //axe X
-const x = d3.scaleLinear().domain([0, 100]).range([0, width]);
+const x = d3.scaleLinear().domain([minpib2021, maxpib2021]).range([20, width]); //ici il faut prendre la valeur max du PIB
 
 svg
   .append("g")
   .attr("transform", `translate(${margin.left}, ${height + margin.top})`)
   .call(d3.axisBottom(x));
 
-  // axe Y
-const y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
+// axe Y
+const y = d3
+  .scaleLinear()
+  .domain([minesperance2021, maxesperance2021])
+  .range([height, 20]); //ici il faut prendre la valeur max de l'âge
 
-svg.append("g")
+svg
+  .append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`)
   .call(d3.axisLeft(y));
-
-//dessin des cercles
-
-svg
-  .append("circle")
-  .attr("cx", x(10) + margin.left)
-  .attr("cy", y(60))
-  .attr("r", 40)
-  .style("fill", "blue");
-svg
-  .append("circle")
-  .attr("cx", x(50) + margin.left)
-  .attr("cy", y(60))
-  .attr("r", 40)
-  .style("fill", "red");
-svg
-  .append("circle")
-  .attr("cx", x(100) + margin.left)
-  .attr("cy", y(60))
-  .attr("r", 40)
-  .style("fill", "green");
 
