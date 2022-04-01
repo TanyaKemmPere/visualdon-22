@@ -4,22 +4,22 @@ import esperance from "../data/life_expectancy_years.csv";
 import population from "../data/population_total.csv";
 
 // Le premier rendu implique la visualisation statique des données data/gapminder.csv pour l'année 2021 sous forme de Scatter/Bubble Chart.
-//Vous aurez sur l'axe X les données de PIB par habitant et sur l'axe Y l'espérance de vie. La taille des cercles devra être proportionnelle à la population du pays.
+//Vous aurez sur l'axe X les données de PIB par habitant et sur l'axe Y l'espérance de vie.
+//La taille des cercles devra être proportionnelle à la population du pays.
 
-const pib2021 = pib.map ((d) => 
-{
-    return d[2021];
-})
+const pib2021 = pib.map((d) => {
+  return d[2021];
+});
+const maxpib2021 = d3.max(pib2021);
 
-const esperance2021 = esperance.map ((d) => 
-{
-    return d[2021];
-})
+const esperance2021 = esperance.map((d) => {
+  return d[2021];
+});
+const maxesperance2021 = d3.max(esperance2021);
 
-const population2021 = population.map ((d) => 
-{
-    return d[2021];
-})
+const population2021 = population.map((d) => {
+  return d[2021];
+});
 
 console.log(pib2021);
 console.log(esperance2021);
@@ -41,39 +41,17 @@ svg
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-//échelles
-
-const x = d3.scaleLinear().domain([0, 100]).range([0, width]);
-
 //création + dessin des axes
+const x = d3.scaleLinear().domain([0, maxpib2021]).range([0, width]); //ici il faut prendre la valeur max du PIB
 
 svg
   .append("g")
   .attr("transform", "translate(0," + height + ")")
   .call(d3.axisBottom(x));
 
-const y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
-
-svg.append("g").call(d3.axisLeft(y));
-
-//dessin des cercles
+const y = d3.scaleLinear().domain([0, maxesperance2021]).range([height, 0]); //ici il faut prendre la valeur max de l'âge
 
 svg
-  .append("circle")
-  .attr("cx", x(10))
-  .attr("cy", y(60))
-  .attr("r", 40)
-  .style("fill", "blue");
-svg
-  .append("circle")
-  .attr("cx", x(50))
-  .attr("cy", y(60))
-  .attr("r", 40)
-  .style("fill", "red");
-svg
-  .append("circle")
-  .attr("cx", x(100))
-  .attr("cy", y(60))
-  .attr("r", 40)
-  .style("fill", "green");
-
+  .append("g")
+  .attr("transform", "translate(0," + margin.left + ")")
+  .call(d3.axisLeft(y));
