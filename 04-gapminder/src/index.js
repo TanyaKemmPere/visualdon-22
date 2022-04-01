@@ -33,7 +33,7 @@ const svg = d3
   .attr("width", height)
   .attr("height", width);
 
-const margin = { top: 10, right: 50, bottom: 20, left: 50 },
+const margin = { top: 10, right: 40, bottom: 20, left: 40 },
   width = 450 - margin.left - margin.right,
   height = 400 - margin.top - margin.bottom;
 
@@ -43,17 +43,44 @@ svg
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+//échelles
+
+
 //création + dessin des axes
-const x = d3.scaleLinear().domain([minpib2021, maxpib2021]).range([0, width]); //ici il faut prendre la valeur max du PIB
+
+  //axe X
+const x = d3.scaleLinear().domain([0, 100]).range([0, width]);
 
 svg
   .append("g")
-  .attr("transform", "translate(0," + height + ")")
+  .attr("transform", `translate(${margin.left}, ${height + margin.top})`)
   .call(d3.axisBottom(x));
 
-const y = d3.scaleLinear().domain([minesperance2021, maxesperance2021]).range([height, 0]); //ici il faut prendre la valeur max de l'âge
+  // axe Y
+const y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
+
+svg.append("g")
+  .attr("transform", `translate(${margin.left}, ${margin.top})`)
+  .call(d3.axisLeft(y));
+
+//dessin des cercles
 
 svg
-  .append("g")
-  .attr("transform", "translate(0," + margin.left + ")")
-  .call(d3.axisLeft(y));
+  .append("circle")
+  .attr("cx", x(10) + margin.left)
+  .attr("cy", y(60))
+  .attr("r", 40)
+  .style("fill", "blue");
+svg
+  .append("circle")
+  .attr("cx", x(50) + margin.left)
+  .attr("cy", y(60))
+  .attr("r", 40)
+  .style("fill", "red");
+svg
+  .append("circle")
+  .attr("cx", x(100) + margin.left)
+  .attr("cy", y(60))
+  .attr("r", 40)
+  .style("fill", "green");
+
