@@ -31,7 +31,7 @@ const svg = d3
   .attr("width", height)
   .attr("height", width);
 
-const margin = { top: 10, right: 40, bottom: 10, left: 40 },
+const margin = { top: 10, right: 40, bottom: 20, left: 40 },
   width = 450 - margin.left - margin.right,
   height = 400 - margin.top - margin.bottom;
 
@@ -43,36 +43,41 @@ svg
 
 //échelles
 
-const x = d3.scaleLinear().domain([0, 100]).range([0, width]);
 
 //création + dessin des axes
 
+  //axe X
+const x = d3.scaleLinear().domain([0, 100]).range([0, width]);
+
 svg
   .append("g")
-  .attr("transform", "translate(0," + height + ")")
+  .attr("transform", `translate(${margin.left}, ${height + margin.top})`)
   .call(d3.axisBottom(x));
 
+  // axe Y
 const y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
 
-svg.append("g").call(d3.axisLeft(y));
+svg.append("g")
+  .attr("transform", `translate(${margin.left}, ${margin.top})`)
+  .call(d3.axisLeft(y));
 
 //dessin des cercles
 
 svg
   .append("circle")
-  .attr("cx", x(10))
+  .attr("cx", x(10) + margin.left)
   .attr("cy", y(60))
   .attr("r", 40)
   .style("fill", "blue");
 svg
   .append("circle")
-  .attr("cx", x(50))
+  .attr("cx", x(50) + margin.left)
   .attr("cy", y(60))
   .attr("r", 40)
   .style("fill", "red");
 svg
   .append("circle")
-  .attr("cx", x(100))
+  .attr("cx", x(100) + margin.left)
   .attr("cy", y(60))
   .attr("r", 40)
   .style("fill", "green");
