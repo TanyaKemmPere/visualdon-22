@@ -6,6 +6,25 @@ import population from "../data/population_total.csv";
 // Le premier rendu implique la visualisation statique des données data/gapminder.csv pour l'année 2021 sous forme de Scatter/Bubble Chart.
 //Vous aurez sur l'axe X les données de PIB par habitant et sur l'axe Y l'espérance de vie. La taille des cercles devra être proportionnelle à la population du pays.
 
+const pib2021 = pib.map ((d) => 
+{
+    return d[2021];
+})
+
+const esperance2021 = esperance.map ((d) => 
+{
+    return d[2021];
+})
+
+const population2021 = population.map ((d) => 
+{
+    return d[2021];
+})
+
+console.log(pib2021);
+console.log(esperance2021);
+console.log(population2021);
+
 const svg = d3
   .select("body")
   .append("svg")
@@ -57,3 +76,4 @@ svg
   .attr("cy", y(60))
   .attr("r", 40)
   .style("fill", "green");
+
