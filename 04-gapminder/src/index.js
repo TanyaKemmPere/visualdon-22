@@ -91,4 +91,3 @@ svg
   .attr("cx", (d) => x(d.pib2021))
   .attr("cy", (d) => y(d.esperance2021))
   .attr("fill", "pink");
-
