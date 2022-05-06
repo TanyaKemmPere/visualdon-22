@@ -11,8 +11,10 @@ import puppeteer from "puppeteer";
   await page.goto(
     "https://fr.wikipedia.org/wiki/Canton_(Suisse)#Données_cantonales"
   );
-  const name = await page.$eval('td > a', el => el.innerText)
-  console.log(name)
+  const canton = await page.$eval('td > a', el => el.innerText)
+  console.log(canton)
+  const pop = await page.$eval('td > bdi', el => el.innerText)
+  console.log(pop)
   await page.screenshot({ path: "cantons.png" });
   await browser.close();
 };
